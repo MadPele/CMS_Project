@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show topic</title>
+</head>
+<body>
+    <div style="text-align:right;font-size:12px">Logged as {{ user }}<br>
+    <a href="{% url 'logout' %}" style="text-decoration-line:none">Logout</a> </div>
+{{ topic.name }}
+{% if messages %}
+    {% for message in messages %}
+        <!--<p style="text-size:10px">Message by {{ message.</p>-->
+        {{ message.message }}<br><br>
+    {% endfor %}
+{% endif %}
+<form method="GET" action="{% url 'add_message' topic.id %}">
+    <br><input type="submit" value="Add message" />
+</form>
+
+</body>
+</html>

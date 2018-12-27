@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add message</title>
+</head>
+<body>
+{% load cms_tags %}
+    <div style="text-align:right;font-size:12px">Logged as {{ user }}<br>
+    <a href="{% url 'logout' %}" style="text-decoration-line:none">Logout</a> </div>
+<center><h3>Add message to "{{ topic.name }}"</h3></center>
+<form method="POST">
+    {% csrf_token %}
+    {% render_placeholder message_instance.message "640" %}
+    <input type="submit" value="Send" />
+</form>
+
+</body>
+</html>

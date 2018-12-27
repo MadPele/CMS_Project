@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+    <div style="text-align:right;font-size:12px">Logged as {{ user }}<br>
+    <a href="{% url 'logout' %}" style="text-decoration-line:none">Logout</a> </div>
+    <center><h2>Blog topics</h2></center>
+    {% if topics %}
+        {% for topic in topics %}
+            <a href="{url 'show_topic' topic.id %}" style="text-decoration:none">{{ topic.name }}</a><br>
+        {% endfor %}
+    {% endif %}
+    <br><form method="GET" action="{% url 'add_topic' %}">
+        <input type="submit" value="Add topic" />
+    </form>
+
+</body>
+</html>

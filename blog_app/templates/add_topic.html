@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add topic</title>
+</head>
+<body>
+<p style="text-align:right">Logged as {{ user }}</p>
+<center><h3>Write the name for topic</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" />&emsp;
+        <input type="submit" value="Add" />
+    </form>
+    </center>
+
+</body>
+</html>

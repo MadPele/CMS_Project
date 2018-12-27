@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+        <center><h2>Login</h2>
+            {% if error %}
+            <b>{{ error }}</b>
+            {% endif %}
+            <br><input type="text" name="nick" placeholder="Nickname" /><br>
+        <input type="password" name="password" placeholder="Password" /><br>
+        <input type="submit" value="Send" /><br><br></center><br>
+        Don't have account? <a href="{% url 'register' %}">Register now</a><br>
+        Don't remember you password? <a href="{% url 'reset_password' %}">Reset password</a>
+    </form>
+
+</body>
+</html>

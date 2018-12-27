@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+    <center><h2>Register account</h2></center><br>
+    <form method="POST">
+        {% csrf_token %}
+        {% if error_nick_or_email %}
+            <b>&emsp;{{ error_nick_or_email }}</b><br><br>
+        {% endif %}
+        <label>Nickname: </label>
+        <input type="text" name="nick" /><br>
+        <label>Email: </label>
+        <input type="email" name="email" /><br>
+        <label>Password: </label>
+        <input type="password" name="password" /><br>
+        {% if error_pass %}
+            <br><b>&emsp;{{ error_pass }}!</b><br><br>
+        {% endif %}
+        <label>Confirm password: </label>
+        <input type="password" name="password2" /><br><br>
+        <input type="submit" value="Register" />
+    </form>
+
+</body>
+</html>
